@@ -10,7 +10,7 @@ class LoanDecisionApi(RequestHandler):
         self.write({'message': 'hello world'})
 
     def post(self):
-        body = json.loads(self.request.data)
+        body = json.loads(self.request.body)
         print(body)
 
         decision = LoanDecision.validate_loan(requested_amount=body['requested_amount'])
