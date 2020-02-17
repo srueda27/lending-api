@@ -14,12 +14,12 @@ class LoanDecisionApi(RequestHandler):
         self.write({'decision':decision})
 
 def make_app():
-  urls = [
+    urls = [
     ("/validate_loan", LoanDecisionApi)
-  ]
-  return Application(urls, debug=True)
+    ]
+    return Application(urls, debug=True)
 
 if __name__ == '__main__':
-  app = make_app()
-  app.listen(3000)
-  IOLoop.instance().start()
+    app = make_app()
+    app.listen(3000)
+    IOLoop.instance().start()
