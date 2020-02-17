@@ -13,7 +13,7 @@ class LoanDecisionApi(RequestHandler):
         body = json.loads(self.request.body)
         decision = LoanDecision.validate_loan(requested_amount=body['requested_amount'])
 
-        self.write({'decision':decision})
+        self.write({'decision':decision, 'requested_amount':body['requested_amount']})
 
 def make_app():
     urls = [
