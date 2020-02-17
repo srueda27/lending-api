@@ -3,8 +3,6 @@ from tornado.ioloop import IOLoop
 from loan_decision import LoanDecision
 import json
 
-items = []
-
 class LoanDecisionApi(RequestHandler):
     def get(self):
         self.write({'message': 'hello world'})
