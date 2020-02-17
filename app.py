@@ -11,6 +11,8 @@ class LoanDecisionApi(RequestHandler):
 
     def post(self):
         body = json.loads(self.request.data)
+        print(body)
+
         decision = LoanDecision.validate_loan(requested_amount=body['requested_amount'])
 
         self.write({'decision':decision, 'requested_amount':body['requested_amount']})
