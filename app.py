@@ -2,6 +2,8 @@ from tornado.web import Application, RequestHandler
 from tornado.ioloop import IOLoop
 from loan_decision import LoanDecision
 import json
+import tornado.httpserver
+import os
 
 class LoanDecisionApi(RequestHandler):
     def get(self):
@@ -21,5 +23,7 @@ def make_app():
 
 if __name__ == '__main__':
     app = make_app()
-    app.listen(3000)
+    http_server = tornado.httpserver.HTTPServer(app)
+    port = int(os.environ.get("PORT", 5000))
+    http_server.listen(port)
     IOLoop.instance().start()
